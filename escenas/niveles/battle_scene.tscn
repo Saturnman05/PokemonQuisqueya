@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://d32v3pfc12q4p"]
+
+[ext_resource type="Texture2D" uid="uid://ts4jx3k0ravo" path="res://assets/battlebacks/battlebgabrega.png" id="1_j5sby"]
+[ext_resource type="Texture2D" uid="uid://b47hyeylsg13i" path="res://assets/battlebacks/enemybaseabrega.png" id="2_e67vg"]
+[ext_resource type="Texture2D" uid="uid://dvnm0wh5f7xre" path="res://assets/battlebacks/extra/battleMessage.png" id="3_3g85e"]
+[ext_resource type="PackedScene" uid="uid://cpc4atpf46ubt" path="res://escenas/pokemon/000_testsaurio.tscn" id="3_hgpy2"]
+
+[node name="BattleScene" type="Node2D"]
+
+[node name="Background" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 384.0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 288.0
+texture = ExtResource("1_j5sby")
+
+[node name="Jugador" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+
+[node name="BoxContainer" type="BoxContainer" parent="Jugador"]
+layout_mode = 1
+
+[node name="Plataforma" type="TextureRect" parent="Jugador/BoxContainer"]
+layout_mode = 2
+
+[node name="BattleBackground" type="Sprite2D" parent="."]
+position = Vector2(256, 144)
+texture = ExtResource("1_j5sby")
+
+[node name="BattlePlatformPlayer" type="Sprite2D" parent="."]
+position = Vector2(136, 250)
+texture = ExtResource("2_e67vg")
+
+[node name="MyPokemon" type="Node2D" parent="."]
+position = Vector2(134, 243)
+
+[node name="000_testsaurio" parent="MyPokemon" instance=ExtResource("3_hgpy2")]
+
+[node name="BattlePlatformNPC" type="Sprite2D" parent="."]
+position = Vector2(375, 156)
+texture = ExtResource("2_e67vg")
+
+[node name="EnemyPokemon" type="Node2D" parent="."]
+position = Vector2(380, 161)
+
+[node name="000_testsaurio" parent="EnemyPokemon" instance=ExtResource("3_hgpy2")]
+
+[node name="BattleMessage" type="Sprite2D" parent="."]
+position = Vector2(256, 336)
+texture = ExtResource("3_3g85e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(256, 192)
+zoom = Vector2(2, 2)

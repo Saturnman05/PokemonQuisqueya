@@ -1,0 +1,174 @@
+[gd_scene load_steps=9 format=3 uid="uid://brh124rsfnctf"]
+
+[ext_resource type="Texture2D" uid="uid://ts4jx3k0ravo" path="res://assets/battlebacks/battlebgabrega.png" id="1_0rt1g"]
+[ext_resource type="Script" path="res://escenas/niveles/battle.gd" id="1_augb4"]
+[ext_resource type="Texture2D" uid="uid://b47hyeylsg13i" path="res://assets/battlebacks/enemybaseabrega.png" id="3_x5v7c"]
+[ext_resource type="Texture2D" uid="uid://dd2o2vk5hwabk" path="res://assets/battlebacks/extra/battleFoeBoxS.png" id="4_mhg88"]
+[ext_resource type="Texture2D" uid="uid://bmu144lxon2jd" path="res://assets/battlebacks/extra/battlePlayerBoxS.png" id="4_se3xq"]
+[ext_resource type="PackedScene" uid="uid://cpc4atpf46ubt" path="res://escenas/pokemon/000_testsaurio.tscn" id="6_c0wj7"]
+[ext_resource type="Texture2D" uid="uid://dvnm0wh5f7xre" path="res://assets/battlebacks/extra/battleMessage.png" id="7_6tosa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_feehy"]
+bg_color = Color(0.282353, 0.709804, 0, 1)
+
+[node name="BattleSingles" type="Control"]
+layout_mode = 3
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_augb4")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_0rt1g")
+metadata/_edit_lock_ = true
+
+[node name="NPCPlataforma" type="Control" parent="."]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.422
+offset_bottom = -0.0480042
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="NPCPlataforma"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -265.0
+offset_top = -67.0
+offset_right = -9.0
+offset_bottom = 61.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_x5v7c")
+
+[node name="TextureRect2" type="TextureRect" parent="NPCPlataforma"]
+layout_mode = 0
+offset_top = 31.0
+offset_right = 260.0
+offset_bottom = 93.0
+texture = ExtResource("4_mhg88")
+
+[node name="JugadorPlataforma" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.75
+offset_bottom = -3.05176e-05
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="JugadorPlataforma"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = -6.0
+offset_right = 280.0
+offset_bottom = 122.0
+texture = ExtResource("3_x5v7c")
+
+[node name="JugadorPokemon" type="Node2D" parent="JugadorPlataforma"]
+position = Vector2(150, 51)
+
+[node name="000_testsaurio" parent="JugadorPlataforma/JugadorPokemon" instance=ExtResource("6_c0wj7")]
+
+[node name="BattlePlayerBox" type="TextureRect" parent="JugadorPlataforma"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -55.0
+offset_right = -1.0
+offset_bottom = 14.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_se3xq")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="JugadorPlataforma"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.803
+anchor_top = 0.26
+anchor_right = 0.954
+anchor_bottom = 0.311
+offset_left = -1.13602
+offset_top = 0.0399971
+offset_right = 316.552
+offset_bottom = 22.144
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+theme_override_styles/fill = SubResource("StyleBoxFlat_feehy")
+value = 50.0
+show_percentage = false
+
+[node name="LabelNombre" type="Label" parent="JugadorPlataforma"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.667
+anchor_right = 0.827
+anchor_bottom = 0.125
+offset_left = -3.50403
+offset_top = -1.0
+offset_right = 44.576
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.9, 0.9)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "PlaceHolder"
+
+[node name="LabelNivel" type="Label" parent="JugadorPlataforma"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -47.0
+offset_top = -2.0
+offset_right = -7.0
+offset_bottom = 24.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -96.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("7_6tosa")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.805
+anchor_top = 0.8
+anchor_right = 0.949
+anchor_bottom = 0.87
+offset_left = -0.160034
+offset_top = -0.200012
+offset_right = 0.111969
+offset_bottom = -0.0800171
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(2, 2)
+
+[connection signal="hp" from="JugadorPlataforma/JugadorPokemon/000_testsaurio" to="." method="_on__testsaurio_hp"]
+[connection signal="nivel" from="JugadorPlataforma/JugadorPokemon/000_testsaurio" to="." method="_on__testsaurio_nivel"]
+[connection signal="nombre_pokemon" from="JugadorPlataforma/JugadorPokemon/000_testsaurio" to="." method="_on__testsaurio_nombre_pokemon"]
